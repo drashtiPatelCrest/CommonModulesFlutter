@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:gallery_saver/gallery_saver.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -22,7 +22,6 @@ class _ImageCropScreenState extends State<ImageCropScreen> {
     return Scaffold(
       appBar: AppBar(title: Text(title)),
       body: _mainView(),
-      //body: _body(),
     );
   }
 }
@@ -55,6 +54,13 @@ extension on _ImageCropScreenState {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
+                //Save
+                InkWell(
+                    onTap: () {
+                      _saveImage();
+                    },
+                    child: iconView(icon: Icons.save_alt)),
+                const SizedBox(width: 20),
                 //Crop
                 InkWell(
                     onTap: () {
@@ -208,5 +214,16 @@ extension on _ImageCropScreenState {
         });
       }
     }
+  }
+
+  //Save Image
+  void _saveImage() async {
+    GallerySaver.saveImage(_croppedFile!.path, albumName: "Media")
+        .then((bool? success) {
+      /*Toast.show("Image saved successfully",
+          duration: Toast.lengthShort, gravity: Toast.bottom);*/
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Image saved successfully')));
+    });
   }
 }
