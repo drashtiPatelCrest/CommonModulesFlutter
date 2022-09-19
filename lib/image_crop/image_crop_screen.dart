@@ -186,7 +186,7 @@ extension on _ImageCropScreenState {
         uiSettings: [
           AndroidUiSettings(
               toolbarTitle: 'Cropper',
-              toolbarColor: Colors.deepOrange,
+              toolbarColor: Colors.deepPurple,
               toolbarWidgetColor: Colors.white,
               initAspectRatio: CropAspectRatioPreset.original,
               lockAspectRatio: false),
@@ -218,7 +218,9 @@ extension on _ImageCropScreenState {
 
   //Save Image
   void _saveImage() async {
-    GallerySaver.saveImage(_croppedFile!.path, albumName: "Media")
+    GallerySaver.saveImage(
+            _croppedFile == null ? _pickedFile!.path : _croppedFile!.path,
+            albumName: "Media")
         .then((bool? success) {
       /*Toast.show("Image saved successfully",
           duration: Toast.lengthShort, gravity: Toast.bottom);*/
