@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gallery_saver/gallery_saver.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:modules_flutter/widgets/alert_dialog_util.dart';
 
 class ImageCropScreen extends StatefulWidget {
   const ImageCropScreen({Key? key}) : super(key: key);
@@ -43,7 +44,7 @@ extension on _ImageCropScreenState {
           //Upload Image
           InkWell(
               onTap: () {
-                _uploadImage();
+                _uploadImageDialog();
               },
               child: textIcon(
                   text: 'Upload Image', icon: Icons.add_a_photo_outlined)),
@@ -156,9 +157,8 @@ extension on _ImageCropScreenState {
 
 extension on _ImageCropScreenState {
   //Upload Image
-  Future<void> _uploadImage() async {
-    final pickedFile =
-        await ImagePicker().pickImage(source: ImageSource.gallery);
+  Future<void> _uploadImage(ImageSource source) async {
+    final pickedFile = await ImagePicker().pickImage(source: source);
     if (pickedFile != null) {
       setState(() {
         _croppedFile = null;
@@ -227,5 +227,29 @@ extension on _ImageCropScreenState {
       ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Image saved successfully')));
     });
+  }
+
+  //Pick image dialog
+  void _uploadImageDialog() {
+    showAlertDialog(
+        context: context,
+        outsideTouchDismiss: true,
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text("Pick Image",
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 14),
+            customAlertButton(context, "Gallery", onTap: () {
+              _uploadImage(ImageSource.gallery);
+            }),
+            const SizedBox(height: 10),
+            customAlertButton(context, "Camera", onTap: () {
+              _uploadImage(ImageSource.camera);
+            }),
+            const SizedBox(height: 10),
+            customAlertButton(context, "Cancel"),
+          ],
+        ));
   }
 }
