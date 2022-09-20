@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:modules_flutter/image_crop/image_crop_screen.dart';
+import 'package:modules_flutter/dashboard_screen.dart';
 import 'package:toast/toast.dart';
 
 void main() {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home: const ImageCropScreen(),
+      home: const DashboardScreen(),
     );
   }
 }

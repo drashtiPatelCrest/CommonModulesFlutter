@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:gallery_saver/gallery_saver.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:modules_flutter/widgets/alert_dialog_util.dart';
+import 'package:modules_flutter/utils/alert_dialog_util.dart';
 
 class ImageCropScreen extends StatefulWidget {
-  const ImageCropScreen({Key? key}) : super(key: key);
+  final String title;
+
+  const ImageCropScreen({Key? key, required this.title}) : super(key: key);
 
   @override
   State<ImageCropScreen> createState() => _ImageCropScreenState();
@@ -16,12 +18,14 @@ class ImageCropScreen extends StatefulWidget {
 class _ImageCropScreenState extends State<ImageCropScreen> {
   XFile? _pickedFile;
   CroppedFile? _croppedFile;
-  String title = "Image Crop";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(title)),
+      appBar: AppBar(
+          title: Text(widget.title),
+          automaticallyImplyLeading: true,
+          centerTitle: true),
       body: _mainView(),
     );
   }

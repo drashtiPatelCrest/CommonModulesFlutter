@@ -56,16 +56,20 @@ Widget iOSAlertDialog(
 
 //Custom alert dialog button
 Widget customAlertButton(BuildContext context, String text,
-    {Function? onTap, Color? btnColor}) {
+    {Function? onTap,
+    Color? btnColor,
+    double verticalPadding = 10.0,
+    double fontSize = 14.0,
+    bool isClose = true}) {
   return GestureDetector(
     onTap: () {
       if (onTap != null) {
         onTap();
       }
-      Navigator.pop(context);
+      if (isClose) Navigator.pop(context);
     },
     child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 10.0),
+        padding: EdgeInsets.symmetric(vertical: verticalPadding),
         width: double.infinity,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25.0),
@@ -73,10 +77,10 @@ Widget customAlertButton(BuildContext context, String text,
         child: Text(
           text,
           textAlign: TextAlign.center,
-          style: const TextStyle(
+          style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w600,
-              fontSize: 14.0),
+              fontSize: fontSize),
         )),
   );
 }

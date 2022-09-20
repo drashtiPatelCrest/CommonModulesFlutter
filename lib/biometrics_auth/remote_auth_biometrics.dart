@@ -5,7 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_biometrics/flutter_biometrics.dart';
 
 class RemoteAuthBiometrics extends StatefulWidget {
-  const RemoteAuthBiometrics({Key? key}) : super(key: key);
+  final String title;
+
+  const RemoteAuthBiometrics({Key? key, required this.title}) : super(key: key);
 
   @override
   State<RemoteAuthBiometrics> createState() => _RemoteAuthBiometricsState();
@@ -22,9 +24,9 @@ class _RemoteAuthBiometricsState extends State<RemoteAuthBiometrics> {
     return Scaffold(
       backgroundColor: Colors.deepPurple,
       appBar: AppBar(
-        title: const Text(
-          'Authentication',
-          style: TextStyle(color: Colors.white),
+        title: Text(
+          widget.title,
+          style: const TextStyle(color: Colors.white),
         ),
         centerTitle: true,
         backgroundColor: Colors.deepPurple,
