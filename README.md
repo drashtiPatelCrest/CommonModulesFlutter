@@ -6,6 +6,10 @@ This project aims to provide common flutter modules implementation to developers
 
 Image Cropper is an image cropping module compatible with Android and iOS.
 
+### Features
+
+- 
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
