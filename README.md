@@ -1,16 +1,28 @@
-# modules_flutter
+# Common Modules Flutter
 
-A new Flutter project.
+This project aims to provide common flutter modules implementation to developers.
 
-## Getting Started
+## Image Cropper
 
-This project is a starting point for a Flutter application.
+Image Cropper is an image cropping module compatible with Android and iOS.
 
-A few resources to get you started if this is your first Flutter project:
+### Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Image Cropping
+- Image Rotation
+- Image Scaling
+- Image Aspect Ratio
+- Pick image from Gallery
+- Capture image from Camera
+- Save image
+- Replace image
+- Delete image
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<table>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/107921555/191434567-c732909c-b970-4d31-a308-5a9151aea4d9.JPEG" width="300" height="500"></td>
+    <td><img src="https://user-images.githubusercontent.com/107921555/191430868-a431cc65-d384-405f-9c47-cf9293826fe1.JPEG" width="300" height="500"></td>
+    <td><img src="https://user-images.githubusercontent.com/107921555/191425532-6dbc9a8a-f7c9-4816-82dc-4c37aebe3dc9.JPEG" width="300" height="500"></td>
+  </tr>
+ </table>
+
