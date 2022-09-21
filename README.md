@@ -17,3 +17,5 @@ Image Cropper is an image cropping module compatible with Android and iOS.
 - Save image
 - Replace image
 - Delete image
+
+![1663739679625](https://user-images.githubusercontent.com/107921555/191425262-5687c391-6bad-49bd-bdff-51f6f665b71c.JPEG)
