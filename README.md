@@ -12,7 +12,7 @@ Image Cropper is an image cropping module compatible with Android and iOS.
 - Image Rotation
 - Image Scaling
 - Image Aspect Ratio
-- Select image from Gallery
+- Pick image from Gallery
 - Capture image from Camera
 - Save image
 - Replace image
