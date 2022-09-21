@@ -8,7 +8,15 @@ Image Cropper is an image cropping module compatible with Android and iOS.
 
 ### Features
 
-- 
+- Image Cropping
+- Image Rotation
+- Image Scaling
+- Image Aspect Ratio
+- Select image from Gallery
+- Captured image from Camera
+- Save image
+- Replace image
+- Delete image
 
 ## Getting Started
 
