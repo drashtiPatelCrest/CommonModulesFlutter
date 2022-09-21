@@ -1,6 +1,6 @@
 # Common Modules Flutter
 
-A new Flutter project.
+This project aims to provide common flutter modules implementation to developers.
 
 ## Image Cropper
 
