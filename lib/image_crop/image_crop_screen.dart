@@ -18,6 +18,7 @@ class ImageCropScreen extends StatefulWidget {
 class _ImageCropScreenState extends State<ImageCropScreen> {
   XFile? _pickedFile;
   CroppedFile? _croppedFile;
+  String imageText = "Upload Image";
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +41,10 @@ extension on _ImageCropScreenState {
       child: Column(
         children: [
           //Profile Image
-          const Text("Profile Image",
-              style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold)),
+          const Text(
+              "Add image here. You can crop image by tapping on Crop icon. When you are done tap on Save icon. Image will be saved in Gallery.",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w400)),
           const SizedBox(height: 40),
           _imageUploadView(),
           const SizedBox(height: 40),
@@ -50,8 +53,8 @@ extension on _ImageCropScreenState {
               onTap: () {
                 _uploadImageDialog();
               },
-              child: textIcon(
-                  text: 'Upload Image', icon: Icons.add_a_photo_outlined)),
+              child:
+                  textIcon(text: imageText, icon: Icons.add_a_photo_outlined)),
           const SizedBox(height: 40),
           //Menus
           Visibility(
@@ -113,7 +116,7 @@ extension on _ImageCropScreenState {
           height: 290,
           width: 290,
           decoration: BoxDecoration(
-              shape: BoxShape.circle, border: Border.all(color: Colors.grey)),
+              color: Colors.grey.shade300, shape: BoxShape.circle),
           child: _showImageView(),
         ),
       ],
@@ -167,6 +170,7 @@ extension on _ImageCropScreenState {
       setState(() {
         _croppedFile = null;
         _pickedFile = pickedFile;
+        imageText = "Replace Image";
       });
     }
   }
@@ -176,6 +180,7 @@ extension on _ImageCropScreenState {
     setState(() {
       _pickedFile = null;
       _croppedFile = null;
+      imageText = "Upload Image";
     });
   }
 
@@ -193,6 +198,7 @@ extension on _ImageCropScreenState {
               toolbarColor: Colors.deepPurple,
               toolbarWidgetColor: Colors.white,
               initAspectRatio: CropAspectRatioPreset.original,
+              activeControlsWidgetColor: Colors.deepPurple,
               lockAspectRatio: false),
           IOSUiSettings(
             title: 'Cropper',
@@ -241,18 +247,21 @@ extension on _ImageCropScreenState {
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text("Pick Image",
+            const Text("Select Image",
                 style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
             const SizedBox(height: 14),
-            customAlertButton(context, "Gallery", onTap: () {
+            customAlertButton(context, "Gallery",
+                verticalPadding: 14.0, fontSize: 16.0, onTap: () {
               _uploadImage(ImageSource.gallery);
             }),
             const SizedBox(height: 10),
-            customAlertButton(context, "Camera", onTap: () {
+            customAlertButton(context, "Camera",
+                verticalPadding: 14.0, fontSize: 16.0, onTap: () {
               _uploadImage(ImageSource.camera);
             }),
             const SizedBox(height: 10),
-            customAlertButton(context, "Cancel"),
+            customAlertButton(context, "Cancel",
+                verticalPadding: 14.0, fontSize: 16.0, isOutline: true),
           ],
         ));
   }

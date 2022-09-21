@@ -35,12 +35,12 @@ extension on _DashboardScreenState {
                   context, const RemoteAuthBiometrics(title: "Authentication"));
             }),
             const SizedBox(height: 10),
-            customAlertButton(context, "Image Cropping",
+            customAlertButton(context, "Image Cropper",
                 verticalPadding: 16.0,
                 fontSize: 16.0,
                 isClose: false, onTap: () {
               navigateToNextScreen(
-                  context, const ImageCropScreen(title: "Image Crop"));
+                  context, const ImageCropScreen(title: "Crop Image"));
             }),
             const SizedBox(height: 10),
           ],

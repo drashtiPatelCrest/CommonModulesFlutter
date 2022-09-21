@@ -60,7 +60,8 @@ Widget customAlertButton(BuildContext context, String text,
     Color? btnColor,
     double verticalPadding = 10.0,
     double fontSize = 14.0,
-    bool isClose = true}) {
+    bool isClose = true,
+    bool isOutline = false}) {
   return GestureDetector(
     onTap: () {
       if (onTap != null) {
@@ -71,14 +72,18 @@ Widget customAlertButton(BuildContext context, String text,
     child: Container(
         padding: EdgeInsets.symmetric(vertical: verticalPadding),
         width: double.infinity,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25.0),
-            color: btnColor ?? Colors.deepPurple),
+        decoration: isOutline
+            ? BoxDecoration(
+                borderRadius: BorderRadius.circular(25.0),
+                border: Border.all(color: Colors.deepPurple))
+            : BoxDecoration(
+                borderRadius: BorderRadius.circular(25.0),
+                color: btnColor ?? Colors.deepPurple),
         child: Text(
           text,
           textAlign: TextAlign.center,
           style: TextStyle(
-              color: Colors.white,
+              color: isOutline ? Colors.deepPurple : Colors.white,
               fontWeight: FontWeight.w600,
               fontSize: fontSize),
         )),
