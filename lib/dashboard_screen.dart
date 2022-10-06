@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modules_flutter/biometrics_auth/new_auth_screen.dart';
 import 'package:modules_flutter/biometrics_auth/remote_auth_biometrics.dart';
 import 'package:modules_flutter/deep_linking/deep_link_screen.dart';
 import 'package:modules_flutter/deep_linking/uni_link_screen.dart';
@@ -35,7 +36,7 @@ extension on _DashboardScreenState {
                 fontSize: 16.0,
                 isClose: false, onTap: () {
               navigateToNextScreen(
-                  context, const RemoteAuthBiometrics(title: "Authentication"));
+                  context, const NewAuthScreen(title: "Authentication"));
             }),
             const SizedBox(height: 10),
             //Image Cropper
@@ -55,6 +56,15 @@ extension on _DashboardScreenState {
               navigateToNextScreen(
                   context, const UniLinkScreen(title: "Deep Linking"));
             }),
+            const SizedBox(height: 10),
+            //Send WhatsApp Message
+            customAlertButton(context, "Send WhatsApp Message",
+                verticalPadding: 16.0,
+                fontSize: 16.0,
+                isClose: false, onTap: () {
+                  navigateToNextScreen(
+                      context, const UniLinkScreen(title: "Deep Linking"));
+                }),
             const SizedBox(height: 10),
           ],
         ));

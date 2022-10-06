@@ -3,6 +3,7 @@
 
    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+   <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
 
     <queries>
         <package android:name="com.amazon.mShop.android.shopping" />
@@ -47,37 +48,6 @@
                 <data android:scheme="http" android:host="moduledynamiclinks.page.link" />
                 <data android:scheme="https" android:host="moduledynamiclinks.page.link" />
             </intent-filter>-->
-
-            <!--<intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data
-                    android:host="www.amazon.com"
-                    android:pathPrefix="/"
-                    android:scheme="https" />
-            </intent-filter>-->
-
-            <!-- Deep Links -->
-            <!--<intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                &lt;!&ndash; Accepts URIs that begin with YOUR_SCHEME://YOUR_HOST &ndash;&gt;
-                <data
-                    android:scheme="logrckt"
-                    android:host="com.demo.modules_flutter" />
-            </intent-filter>-->
-
-            <!--<meta-data android:name="flutter_deeplinking_enabled" android:value="true" />
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="http" android:host="amazon.com" />
-                <data android:scheme="https" android:host="amazon.com" />
-            </intent-filter>-->
-
 
         </activity>
         <!-- Don't delete the meta-data below.
