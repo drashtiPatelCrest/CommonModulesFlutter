@@ -48,6 +48,7 @@ dependencies:
   url_launcher: ^6.1.5
   uni_links: ^0.5.1
   fast_rsa: ^3.5.1
+  country_picker: ^2.0.16
 
 dev_dependencies:
   flutter_test:

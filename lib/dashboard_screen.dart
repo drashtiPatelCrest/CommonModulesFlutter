@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:modules_flutter/biometrics_auth/new_auth_screen.dart';
-import 'package:modules_flutter/biometrics_auth/remote_auth_biometrics.dart';
-import 'package:modules_flutter/deep_linking/deep_link_screen.dart';
 import 'package:modules_flutter/deep_linking/uni_link_screen.dart';
 import 'package:modules_flutter/image_crop/image_crop_screen.dart';
 import 'package:modules_flutter/utils/alert_dialog_util.dart';
@@ -63,9 +61,18 @@ extension on _DashboardScreenState {
                 verticalPadding: 16.0,
                 fontSize: 16.0,
                 isClose: false, onTap: () {
-                  navigateToNextScreen(
-                      context, const WhatsAppMessageScreen(title: "Send WhatsApp Message"));
-                }),
+              navigateToNextScreen(context,
+                  const WhatsAppMessageScreen(title: "Send WhatsApp Message"));
+            }),
+            const SizedBox(height: 10),
+            //Select Multiple Images
+            customAlertButton(context, "Select Multiple Images",
+                verticalPadding: 16.0,
+                fontSize: 16.0,
+                isClose: false, onTap: () {
+              navigateToNextScreen(context,
+                  const WhatsAppMessageScreen(title: "Select Multiple Images"));
+            }),
             const SizedBox(height: 10),
           ],
         ));

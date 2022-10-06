@@ -115,7 +115,7 @@ class BaseTextField extends TextFormField {
             textAlign: textAlign,
             //enableInteractiveSelection: false, //Stick cursor at end
             decoration: InputDecoration(
-              labelText: labelText ?? hintText,
+              labelText: labelText,
               errorMaxLines: 2,
               prefixIcon: prefixIcon,
               // prefixIconConstraints: BoxConstraints.tight(Size(36, 24)),

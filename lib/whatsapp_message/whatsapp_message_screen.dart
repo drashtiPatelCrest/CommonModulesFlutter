@@ -1,3 +1,4 @@
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:modules_flutter/base_classes/base_button.dart';
 import 'package:modules_flutter/base_classes/base_textField.dart';
@@ -15,6 +16,7 @@ class WhatsAppMessageScreen extends StatefulWidget {
 
 class _WhatsAppMessageScreenState extends State<WhatsAppMessageScreen> {
   final TextEditingController _controllerPhoneNumber = TextEditingController();
+  final TextEditingController _controllerCountryCode = TextEditingController();
   final TextEditingController _controllerMessage = TextEditingController();
   String? _whatsappUrlAndroid;
   final _formKey = GlobalKey<FormState>();
@@ -55,18 +57,47 @@ extension on _WhatsAppMessageScreenState {
                 style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold)),
             const SizedBox(height: 40),
             //Phone Number
-            BaseTextField(
-              context,
-              controller: _controllerPhoneNumber,
-              hintText: "Enter Phone Number",
-              labelText: "Phone Number",
-              textInputType: TextInputType.number,
-              textInputAction: TextInputAction.next,
-              validatorFun: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter phone number';
-                }
-              },
+            Row(
+              children: [
+                //Country Code
+                Expanded(
+                  flex: 2,
+                  child: BaseTextField(context,
+                      controller: _controllerCountryCode,
+                      textAlign: TextAlign.center,
+                      hintText: "Country Code",
+                      readOnly: true, onTap: () {
+                    //Country code picker
+                    showCountryPicker(
+                      context: context,
+                      showPhoneCode: true,
+                      favorite: ['IN'],
+                      onSelect: (Country country) {
+                        debugPrint('Select country: ${country.displayName}');
+                        _controllerCountryCode.text = "+${country.phoneCode}";
+                      },
+                    );
+                  }),
+                ),
+                const SizedBox(width: 15),
+                //Phone Number
+                Expanded(
+                  flex: 7,
+                  child: BaseTextField(
+                    context,
+                    controller: _controllerPhoneNumber,
+                    hintText: "Enter Phone Number",
+                    labelText: "Phone Number",
+                    textInputType: TextInputType.number,
+                    textInputAction: TextInputAction.next,
+                    validatorFun: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter phone number';
+                      }
+                    },
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 20),
             //Message
@@ -89,7 +120,7 @@ extension on _WhatsAppMessageScreenState {
               if (_formKey.currentState!.validate()) {
                 setState(() {
                   _whatsappUrlAndroid =
-                      "${"whatsapp://send?phone=+91${_controllerPhoneNumber.text}"}&text=${_controllerMessage.text}";
+                      "${"whatsapp://send?phone=+${_controllerCountryCode.text}${_controllerPhoneNumber.text}"}&text=${_controllerMessage.text}";
                 });
                 debugPrint("URL => $_whatsappUrlAndroid");
 
