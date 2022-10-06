@@ -6,6 +6,7 @@ import 'package:modules_flutter/deep_linking/uni_link_screen.dart';
 import 'package:modules_flutter/image_crop/image_crop_screen.dart';
 import 'package:modules_flutter/utils/alert_dialog_util.dart';
 import 'package:modules_flutter/utils/functions_utils.dart';
+import 'package:modules_flutter/whatsapp_message/whatsapp_message_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -63,7 +64,7 @@ extension on _DashboardScreenState {
                 fontSize: 16.0,
                 isClose: false, onTap: () {
                   navigateToNextScreen(
-                      context, const UniLinkScreen(title: "Deep Linking"));
+                      context, const WhatsAppMessageScreen(title: "Send WhatsApp Message"));
                 }),
             const SizedBox(height: 10),
           ],

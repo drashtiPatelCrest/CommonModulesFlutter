@@ -1,0 +1,14 @@
+const double dim8 = 8.0;
+const double dim10 = 10.0;
+const double dim12 = 12.0;
+const double dim14 = 14.0;
+const double dim15 = 15.0;
+const double dim16 = 16.0;
+const double dim17 = 17.0;
+const double dim18 = 18.0;
+const double dim20 = 20.0;
+const double dim24 = 24.0;
+const double dim25 = 25.0;
+const double dim26 = 26.0;
+const double dim30 = 30.0;
+const double dim40 = 40.0;
