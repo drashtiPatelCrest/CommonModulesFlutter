@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:modules_flutter/biometrics_auth/new_auth_screen.dart';
 import 'package:modules_flutter/deep_linking/uni_link_screen.dart';
 import 'package:modules_flutter/image_crop/image_crop_screen.dart';
+import 'package:modules_flutter/multiple_images/multiple_images_screen.dart';
 import 'package:modules_flutter/utils/alert_dialog_util.dart';
 import 'package:modules_flutter/utils/functions_utils.dart';
 import 'package:modules_flutter/whatsapp_message/whatsapp_message_screen.dart';
@@ -71,7 +72,7 @@ extension on _DashboardScreenState {
                 fontSize: 16.0,
                 isClose: false, onTap: () {
               navigateToNextScreen(context,
-                  const WhatsAppMessageScreen(title: "Select Multiple Images"));
+                  const MultipleImagesScreen(title: "Select Multiple Images"));
             }),
             const SizedBox(height: 10),
           ],
