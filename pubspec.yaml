@@ -49,6 +49,8 @@ dependencies:
   uni_links: ^0.5.1
   fast_rsa: ^3.5.1
   country_picker: ^2.0.16
+  flutter_windowmanager: ^0.2.0
+  secure_application: ^3.8.0
 
 dev_dependencies:
   flutter_test:
